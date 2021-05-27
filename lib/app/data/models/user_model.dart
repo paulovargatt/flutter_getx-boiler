@@ -1,10 +1,10 @@
 
 class User {
-  int id;
-  String name;
-  String email;
+  int id = 0;
+  String name = '';
+  String email = '';
 
-  User({this.id, this.name, this.email});
+  User({required this.id, required this.name, required this.email});
 
   User.fromJson(Map<String, dynamic> json) {
     id = json['id'];

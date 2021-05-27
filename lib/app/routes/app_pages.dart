@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:get_app_flutter/app/modules/initial/initial_binding.dart';
 import 'package:get_app_flutter/app/modules/initial/initial_view.dart';
+import 'package:get_app_flutter/app/modules/login/login_binding.dart';
+import 'package:get_app_flutter/app/modules/login/login_view.dart';
 import 'package:get_app_flutter/app/routes/app_routes.dart';
 
 class AppPages {
@@ -11,6 +13,11 @@ class AppPages {
       name: Routes.INITIAL,
       page: () => InitialPage(), //InitialView(),
       binding: InitialBinding(), //InitialBinding(),
+    ),
+    GetPage(
+      name: Routes.LOGIN,
+      page: () => LoginPage(), //InitialView(),
+      binding: LoginBinding(), //InitialBinding(),
     )
   ];
 }

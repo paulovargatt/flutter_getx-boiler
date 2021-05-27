@@ -1,18 +1,18 @@
 import 'package:get_app_flutter/app/data/models/user_model.dart';
 
 class Auth {
-  User user;
-  String message;
-  String accessToken;
-  String tokenType;
-  int expiresIn;
+  Object user = {};
+  String message = '';
+  String accessToken = '';
+  String tokenType = '';
+  int expiresIn = 0;
 
   Auth({
-      this.user,
-      this.message,
-      this.accessToken,
-      this.tokenType,
-      this.expiresIn,
+      required this.user,
+      required this.message,
+      required this.accessToken,
+      required this.tokenType,
+      required this.expiresIn,
       });
 
   Auth.fromJson(Map<String, dynamic> json) {
@@ -20,7 +20,7 @@ class Auth {
     accessToken = json['access_token'];
     tokenType = json['token_type'];
     expiresIn = json['expires_in'];
-    user = json['user'] != null ?  User.fromJson(json['user']) : null;
+    //user = json['user'];
   }
 
   Map<String, dynamic> toJson() {
@@ -29,9 +29,7 @@ class Auth {
     data['access_token'] = this.accessToken;
     data['token_type'] = this.tokenType;
     data['expires_in'] = this.expiresIn;
-    if (this.user != null) {
-      data['user'] = this.user.toJson();
-    }
+    data['user'] = this.user;
     return data;
   }
 }
