@@ -6,18 +6,14 @@ import 'package:http/http.dart' as http;
 class AuthApiClient {
   final http.Client httpClient = http.Client();
 
-  login(String username, String password) async {
-    try{
-      var response = await http
-          .post(baseUrl, body: {"username": null, "password": null});
-
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      } else {
-        print('erro');
-      }
+  login(String email, String password) async {
+    try {
+      var url = apiURL + '/login';
+      var response = await http.post(Uri.parse(url), body: {"user": email, "password": password});
+      return json.decode(response.body);
     } catch (e) {
       print('erro');
+      print(e);
     }
     return null;
   }

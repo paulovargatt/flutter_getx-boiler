@@ -29,10 +29,14 @@ class SignupPage extends GetView<SignupController> {
                 height: Get.height * 0.35,
               ),
               RoundedInputField(
+                ctrl: () => {},
                 hintText: "Email",
                 onChanged: (value) {},
               ),
               RoundedPasswordField(
+                showPass: false,
+                changeButtonPass: () => {},
+                ctrl: () => {},
                 onChanged: (value) {},
               ),
               RoundedButton(
