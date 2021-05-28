@@ -11,13 +11,13 @@ class InitialPage extends GetView<InitialController> {
       body: Stack(
         children: <Widget>[
           SplashScreen(
-            seconds: 5,
+            seconds: 1,
             gradientBackground: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               colors: [Colors.white, Colors.grey],
             ),
-            navigateAfterSeconds: Routes.LOGIN,
+            navigateAfterSeconds: Routes.WELCOME,
             loaderColor: Colors.transparent,
           ),
           Container(

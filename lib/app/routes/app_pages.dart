@@ -3,6 +3,8 @@ import 'package:get_app_flutter/app/modules/initial/initial_binding.dart';
 import 'package:get_app_flutter/app/modules/initial/initial_view.dart';
 import 'package:get_app_flutter/app/modules/login/login_binding.dart';
 import 'package:get_app_flutter/app/modules/login/login_view.dart';
+import 'package:get_app_flutter/app/modules/welcome/welcome_binding.dart';
+import 'package:get_app_flutter/app/modules/welcome/welcome_view.dart';
 import 'package:get_app_flutter/app/routes/app_routes.dart';
 
 class AppPages {
@@ -16,8 +18,13 @@ class AppPages {
     ),
     GetPage(
       name: Routes.LOGIN,
-      page: () => LoginPage(), //InitialView(),
-      binding: LoginBinding(), //InitialBinding(),
+      page: () => LoginPage(),
+      binding: LoginBinding(),
+    ),
+    GetPage(
+      name: Routes.WELCOME,
+      page: () => WelcomePage(),
+      binding: WelcomeBinding(),
     )
   ];
 }
