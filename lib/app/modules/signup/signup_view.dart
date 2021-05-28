@@ -5,10 +5,12 @@ import 'package:get_app_flutter/app/global/widgets/already_have_an_account_achec
 import 'package:get_app_flutter/app/global/widgets/rounded_button.dart';
 import 'package:get_app_flutter/app/global/widgets/rounded_input_field.dart';
 import 'package:get_app_flutter/app/global/widgets/rounded_password_field.dart';
-import 'package:get_app_flutter/app/modules/login/login_controller.dart';
-import 'package:get_app_flutter/app/modules/welcome/background.dart';
+import 'package:get_app_flutter/app/modules/signup/background.dart';
+import 'package:get_app_flutter/app/modules/signup/or_divider.dart';
+import 'package:get_app_flutter/app/modules/signup/signup_controller.dart';
+import 'package:get_app_flutter/app/modules/signup/social_icon.dart';
 
-class LoginPage extends GetView<LoginController> {
+class SignupPage extends GetView<SignupController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,15 +20,14 @@ class LoginPage extends GetView<LoginController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                "LOGIN",
+                "Registro",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               SizedBox(height: Get.height * 0.03),
               SvgPicture.asset(
-                "assets/icons/login.svg",
+                "assets/icons/signup.svg",
                 height: Get.height * 0.35,
               ),
-              SizedBox(height: Get.height * 0.03),
               RoundedInputField(
                 hintText: "Email",
                 onChanged: (value) {},
@@ -35,13 +36,30 @@ class LoginPage extends GetView<LoginController> {
                 onChanged: (value) {},
               ),
               RoundedButton(
-                text: "LOGIN",
+                text: "Registrar",
                 press: () {},
               ),
               SizedBox(height: Get.height * 0.03),
               AlreadyHaveAnAccountCheck(
-                press: () => Get.toNamed('/signup') ,
-              ),
+                  login: false, press: () => Get.toNamed('/login')),
+              OrDivider(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SocalIcon(
+                    iconSrc: "assets/icons/facebook.svg",
+                    press: () {},
+                  ),
+                  SocalIcon(
+                    iconSrc: "assets/icons/twitter.svg",
+                    press: () {},
+                  ),
+                  SocalIcon(
+                    iconSrc: "assets/icons/google-plus.svg",
+                    press: () {},
+                  ),
+                ],
+              )
             ],
           ),
         ),

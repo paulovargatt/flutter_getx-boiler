@@ -28,7 +28,7 @@ class WelcomePage extends GetView<WelcomeController> {
               RoundedButton(
                   text: "SIGN UP",
                   color: Get.theme.primaryColorLight,
-                  press: () => Get.toNamed('/login')
+                  press: () => Get.toNamed('/signup')
               ),
             ],
           ),
