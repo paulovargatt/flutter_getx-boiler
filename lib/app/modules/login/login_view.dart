@@ -81,7 +81,7 @@ class LoginPage extends GetView<LoginController> {
                 ),
                 SizedBox(height: Get.height * 0.03),
                 AlreadyHaveAnAccountCheck(
-                  press: () => Get.toNamed('/signup'),
+                  press: () => controller.toRegister(),
                 ),
               ],
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_app_flutter/app/data/models/user_model.dart';
 import 'package:get_app_flutter/app/data/provider/auth_provider.dart';
+import 'package:get_app_flutter/app/routes/app_routes.dart';
 
 class SignupController extends GetxController {
   final formKeySignup = GlobalKey<FormState>();
@@ -24,12 +25,16 @@ class SignupController extends GetxController {
       if (res['status'] == 200) {
         Get.defaultDialog(
             title: 'Sucesso', content: Text('Usuário cadastrado'));
-        Get.offAllNamed('/login');
-      }else{
-         Get.defaultDialog(
-            title: 'Ops', content: Text(res['message']));
+        Get.offAllNamed(Routes.LOGIN);
+        // Redirect after cadastro
+      } else {
+        Get.defaultDialog(title: 'Ops', content: Text(res['message']));
       }
       loading.value = false;
     }
+  }
+
+  toLogin() {
+    Get.offAllNamed(Routes.LOGIN);
   }
 }

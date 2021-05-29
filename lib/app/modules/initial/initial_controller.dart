@@ -12,7 +12,7 @@ class InitialController extends GetxController {
 
     token = storage.read('token');
     if (token != null) {
-      return Routes.HOME;
+      return Routes.TAB_HOME;
     } else {
       return Routes.WELCOME;
     }

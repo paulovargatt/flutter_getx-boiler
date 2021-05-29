@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
-import 'package:get_app_flutter/app/modules/home/home_binding.dart';
-import 'package:get_app_flutter/app/modules/home/home_view.dart';
 import 'package:get_app_flutter/app/modules/initial/initial_binding.dart';
 import 'package:get_app_flutter/app/modules/initial/initial_view.dart';
 import 'package:get_app_flutter/app/modules/login/login_binding.dart';
 import 'package:get_app_flutter/app/modules/login/login_view.dart';
 import 'package:get_app_flutter/app/modules/signup/signup_binding.dart';
 import 'package:get_app_flutter/app/modules/signup/signup_view.dart';
+import 'package:get_app_flutter/app/modules/tabs/tab_binding.dart';
+import 'package:get_app_flutter/app/modules/tabs/tab_view.dart';
 import 'package:get_app_flutter/app/modules/welcome/welcome_binding.dart';
 import 'package:get_app_flutter/app/modules/welcome/welcome_view.dart';
 import 'package:get_app_flutter/app/routes/app_routes.dart';
@@ -36,9 +36,9 @@ class AppPages {
       binding: SignupBinding(),
     ),
     GetPage(
-      name: Routes.HOME,
-      page: () => HomePage(),
-      binding: HomeBinding(),
+      name: Routes.TAB_HOME,
+      page: () => TabPage(),
+      binding: TabBinding(),
     )
   ];
 }
