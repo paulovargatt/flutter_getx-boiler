@@ -17,7 +17,7 @@ class InitialPage extends GetView<InitialController> {
               end: Alignment.bottomLeft,
               colors: [Colors.white, Colors.grey],
             ),
-            navigateAfterSeconds: Routes.WELCOME,
+            navigateAfterSeconds: controller.verifyAuth(),
             loaderColor: Colors.transparent,
           ),
           Container(

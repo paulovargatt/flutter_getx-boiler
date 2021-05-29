@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:get_app_flutter/app/modules/home/home_binding.dart';
+import 'package:get_app_flutter/app/modules/home/home_view.dart';
 import 'package:get_app_flutter/app/modules/initial/initial_binding.dart';
 import 'package:get_app_flutter/app/modules/initial/initial_view.dart';
 import 'package:get_app_flutter/app/modules/login/login_binding.dart';
@@ -32,6 +34,11 @@ class AppPages {
       name: Routes.SIGNUP,
       page: () => SignupPage(),
       binding: SignupBinding(),
+    ),
+    GetPage(
+      name: Routes.HOME,
+      page: () => HomePage(),
+      binding: HomeBinding(),
     )
   ];
 }

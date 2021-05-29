@@ -1,11 +1,12 @@
 import 'package:get_app_flutter/app/data/models/user_model.dart';
 
 class Auth {
-  Object user = {};
+  Object user = User;
   String message = '';
   String accessToken = '';
   String tokenType = '';
   int expiresIn = 0;
+
 
   Auth({
       required this.user,
@@ -20,8 +21,11 @@ class Auth {
     accessToken = json['access_token'];
     tokenType = json['token_type'];
     expiresIn = json['expires_in'];
-    //user = json['user'];
+    user = json['user'];
   }
+
+  
+
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();

@@ -16,55 +16,83 @@ class SignupPage extends GetView<SignupController> {
     return Scaffold(
       body: Background(
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                "Registro",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: Get.height * 0.03),
-              SvgPicture.asset(
-                "assets/icons/signup.svg",
-                height: Get.height * 0.35,
-              ),
-              RoundedInputField(
-                ctrl: () => {},
-                hintText: "Email",
-                onChanged: (value) {},
-              ),
-              RoundedPasswordField(
-                showPass: false,
-                changeButtonPass: () => {},
-                ctrl: () => {},
-                onChanged: (value) {},
-              ),
-              RoundedButton(
-                text: "Registrar",
-                press: () {},
-              ),
-              SizedBox(height: Get.height * 0.03),
-              AlreadyHaveAnAccountCheck(
-                  login: false, press: () => Get.toNamed('/login')),
-              OrDivider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SocalIcon(
-                    iconSrc: "assets/icons/facebook.svg",
-                    press: () {},
+          child: Form(
+            key: controller.formKeySignup,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Registro",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: Get.height * 0.03),
+                SvgPicture.asset(
+                  "assets/icons/signup.svg",
+                  height: Get.height * 0.35,
+                ),
+                RoundedInputField(
+                  ctrl: controller.nameInput,
+                  hintText: "Nome",
+                  onChanged: (value) {},
+                ),
+                RoundedInputField(
+                  ctrl: controller.emailInput,
+                  hintText: "Email",
+                  onChanged: (value) {},
+                ),
+                Obx(
+                  () => RoundedPasswordField(
+                    showPass: controller.showPass.value,
+                    changeButtonPass: () => {
+                      controller.showPass.value = !controller.showPass.value
+                    },
+                    ctrl: controller.passwordInput,
+                    onChanged: (value) {},
                   ),
-                  SocalIcon(
-                    iconSrc: "assets/icons/twitter.svg",
-                    press: () {},
+                ),
+                Obx(
+                  () => RoundedPasswordField(
+                    showPass: controller.showPass.value,
+                    changeButtonPass: () => {
+                      controller.showPass.value = !controller.showPass.value
+                    },
+                    nameInput: 'Confirme a senha',
+                    ctrl: controller.passwordConfirmation,
+                    onChanged: (value) {},
                   ),
-                  SocalIcon(
-                    iconSrc: "assets/icons/google-plus.svg",
-                    press: () {},
+                ),
+                Obx(
+                  () => RoundedButton(
+                    text: controller.loading.value ? "Aguarde" : "Registrar",
+                    disabled: controller.loading.value,
+                    press: () {
+                      controller.onSubmit();
+                    },
                   ),
-                ],
-              )
-            ],
+                ),
+                SizedBox(height: Get.height * 0.03),
+                AlreadyHaveAnAccountCheck(
+                    login: false, press: () => Get.toNamed('/login')),
+                OrDivider(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SocalIcon(
+                      iconSrc: "assets/icons/facebook.svg",
+                      press: () {},
+                    ),
+                    SocalIcon(
+                      iconSrc: "assets/icons/twitter.svg",
+                      press: () {},
+                    ),
+                    SocalIcon(
+                      iconSrc: "assets/icons/google-plus.svg",
+                      press: () {},
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

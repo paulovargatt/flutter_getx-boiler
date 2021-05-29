@@ -8,7 +8,6 @@ class SignupBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut<SignupController>(() => SignupController());
-    Get.lazyPut<AuthRepository>(() => AuthRepository());
     Get.lazyPut<AuthApiClient>(() => AuthApiClient());
   }
 }

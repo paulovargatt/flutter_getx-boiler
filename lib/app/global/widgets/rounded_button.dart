@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 class RoundedButton extends StatelessWidget {
   final String text;
   final press;
+  final disabled;
   final Color color, textColor;
 
   final ButtonStyle flatButtonStyle = TextButton.styleFrom(
@@ -20,6 +21,7 @@ class RoundedButton extends StatelessWidget {
     required this.text,
     required VoidCallback this.press,
     this.color = Colors.black,
+    this.disabled = false,
     this.textColor = Colors.white,
   });
 
@@ -32,7 +34,8 @@ class RoundedButton extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(29),
         child: TextButton(
-          onPressed:  press,
+          
+          onPressed: disabled ? null : press,
           style: flatButtonStyle,
           child: Text(
             text,

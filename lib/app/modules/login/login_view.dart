@@ -8,6 +8,16 @@ import 'package:get_app_flutter/app/global/widgets/rounded_password_field.dart';
 import 'package:get_app_flutter/app/modules/login/login_controller.dart';
 import 'package:get_app_flutter/app/modules/welcome/background.dart';
 
+final ButtonStyle flatButtonStyle = TextButton.styleFrom(
+  primary: Colors.white,
+  backgroundColor: Get.theme.primaryColor,
+  minimumSize: Size(88, 55),
+  padding: EdgeInsets.symmetric(horizontal: 16.0),
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(2.0)),
+  ),
+);
+
 class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
@@ -37,16 +47,37 @@ class LoginPage extends GetView<LoginController> {
                 Obx(
                   () => RoundedPasswordField(
                     showPass: controller.showPass.value,
-                    changeButtonPass:  () => {
+                    changeButtonPass: () => {
                       controller.showPass.value = !controller.showPass.value
                     },
                     ctrl: controller.passwordInput,
                     onChanged: (value) {},
                   ),
                 ),
-                RoundedButton(
-                  text: "LOGIN",
-                  press: () => controller.login(),
+                Obx(() => Visibility(
+                    visible: !controller.loading.value,
+                    child: RoundedButton(
+                      press: () => controller.login(),
+                      text: 'Login',
+                    ))),
+                Obx(
+                  () => Visibility(
+                    visible: controller.loading.value,
+                    child: Container(
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      width: Get.width * 0.8,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(29),
+                        child: TextButton(
+                          onPressed: () => {},
+                          style: flatButtonStyle,
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
                 SizedBox(height: Get.height * 0.03),
                 AlreadyHaveAnAccountCheck(

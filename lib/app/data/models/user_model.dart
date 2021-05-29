@@ -1,22 +1,19 @@
-
 class User {
-  int id = 0;
+  static final User _User = User._internal();
+
+  factory User() {
+    return _User;
+  }
+
+  User._internal();
+
+  int id = -5;
   String name = '';
   String email = '';
 
-  User({required this.id, required this.name, required this.email});
-
-  User.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-    email = json['email'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['email'] = this.email;
-    return data;
+  ret() {
+    var id = User().id;
+    var name = User().name;
+    var email = User().email;
   }
 }
