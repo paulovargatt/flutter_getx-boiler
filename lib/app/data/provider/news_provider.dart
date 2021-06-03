@@ -14,11 +14,6 @@ class NewsProvider extends GetConnect {
         api + '/bandnews/news/latest/${count}?page=${page}',
         headers: {'Authorization': 'bearer token'});
     if (response.statusCode == 200) {
-      print('1111');
-      //final jsonResponse = response.body['videos']['data'];
-      //print(response.body.json);
-      //jsonResponse.forEach((k,v) => print('${k}: ${v}'));
-
       return response.body['videos']['data'];
     }
   }

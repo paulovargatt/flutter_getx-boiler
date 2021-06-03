@@ -34,6 +34,8 @@ dependencies:
   splashscreen: ^1.3.5
   flutter_svg: ^0.22.0
   flutter_event_bus: ^0.0.2
+  carousel_slider: ^3.0.0
+  adaptive_action_sheet: ^2.0.0
 
 dev_dependencies:
   flutter_test:
